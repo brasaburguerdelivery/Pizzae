@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Brasa Burguer - Lanchonete Delivery</title>
-    <meta name="description" content="Peça os melhores lanches e refeições com delivery rápido. Hamburgers, pizzas, porções e muito mais!">
+    <title>Pizzaê - Pizzaria Delivery</title>
+    <meta name="description" content="Peça as melhores pizzas e refeições com delivery rápido. Pizzas, calzones, porções e muito mais!">
     <meta name="apple-mobile-web-app-capable" content="yes">
     
     <!-- Favicon -->
@@ -18,7 +18,6 @@
     
     <!-- CSS -->
     <style>
-
         /* Estilo para o modal de endereço */
         .address-modal {
             display: none;
@@ -125,6 +124,11 @@
         .drink-option.active {
             border-color: #ba172a;
             background-color: #fff5f5;
+        }
+
+        .drink-option i {
+            font-size: 1.2rem;
+            margin-right: 10px;
         }
 
         .close-drink-modal {
@@ -1148,8 +1152,8 @@
     <header>
         <div class="container header-container">
             <a href="index.html" class="logo">
-                <img src="images/logo.png" alt="Brasa Burguer">
-                <span class="logo-text">Brasa Burguer</span>
+                <img src="images/logo.png" alt="Pizzaê">
+                <span class="logo-text">Pizzaê</span>
             </a>
             
             <nav id="main-nav">
@@ -1249,6 +1253,7 @@
     <!-- Hero Section -->
     <section class="hero" id="home">
         <div class="container">           
+            <h1>A melhor pizza da região, entregue na sua casa!</h1>
             <p>Peça online e receba em minutos. Delivery rápido e sabor garantido!</p>
             <a href="cardapio.html" class="btn">Ver Cardápio</a>
         </div>
@@ -1259,7 +1264,7 @@
         <div class="container">
             <div class="location-container">
                 <h2>Encontre a loja mais próxima</h2>
-                <p>Clique no botão para verificar se há uma lanchonete perto de você</p>
+                <p>Clique no botão para verificar se há uma pizzaria perto de você</p>
                 
                 <button id="locationBtn" class="location-btn">
                     <i class="fas fa-map-marker-alt"></i> Verificar localização
@@ -1288,37 +1293,37 @@
             <!-- Combos -->
             <div class="highlight-card">
                 <div class="highlight-img">
-                    <img src="images/combo-1.png" alt="Combo na Brasa">
+                    <img src="images/combo-1.png" alt="Pizza Margherita">
                 </div>
                 <div class="highlight-content">
-                    <h3>Combo na Brasa</h3>
-                    <p>Pão brioche, 2 hambúrguer 180g, queijo cheddar, bacon fatiado, molho especial + Refrigerante Lata</p>
-                    <p class="price">R$ 16,90</p>
-                    <button class="btn add-to-cart" data-id="1" data-name="Combo na Brasa" data-price="12.90" data-has-drink="true" data-drink-type="refri">Adicionar</button>
-                </div>
-            </div>
-            
-            <div class="highlight-card">
-                <div class="highlight-img">
-                    <img src="images/combo-2.png" alt="Combo Selvagem">
-                </div>
-                <div class="highlight-content">
-                    <h3>Combo Selvagem</h3>
-                    <p>2 Lanches, pão brioche, 2 hambúrguer 180g, queijo cheddar, bacon fatiado, molho especial + Batata Frita + Refrigerante Lata</p>
-                    <p class="price">R$ 23,90</p>
-                    <button class="btn add-to-cart" data-id="2" data-name="Combo Selvagem" data-price="23.90" data-has-drink="true" data-drink-type="refri">Adicionar</button>
-                </div>
-            </div>
-            
-            <div class="highlight-card">
-                <div class="highlight-img">
-                    <img src="images/combo-3.png" alt="Combo Brasa Supremo">
-                </div>
-                <div class="highlight-content">
-                    <h3>Combo Brasa Supremo</h3>
-                    <p>3 Lanches, pão brioche, 3 hambúrguer 180g, queijo cheddar, bacon fatiado, molho especial</p>
+                    <h3>Pizza Margherita</h3>
+                    <p>Molho de tomate, mussarela, tomate fresco, manjericão e azeite de oliva</p>
                     <p class="price">R$ 49,90</p>
-                    <button class="btn add-to-cart" data-id="3" data-name="Combo Brasa Supremo" data-price="49.90">Adicionar</button>
+                    <button class="btn add-to-cart" data-id="1" data-name="Pizza Margherita" data-price="49.90" data-has-drink="true" data-drink-type="refri">Adicionar</button>
+                </div>
+            </div>
+            
+            <div class="highlight-card">
+                <div class="highlight-img">
+                    <img src="images/combo-2.png" alt="Pizza Calabresa">
+                </div>
+                <div class="highlight-content">
+                    <h3>Pizza Calabresa</h3>
+                    <p>Molho de tomate, mussarela, calabresa fatiada, cebola e azeitonas</p>
+                    <p class="price">R$ 54,90</p>
+                    <button class="btn add-to-cart" data-id="2" data-name="Pizza Calabresa" data-price="54.90" data-has-drink="true" data-drink-type="refri">Adicionar</button>
+                </div>
+            </div>
+            
+            <div class="highlight-card">
+                <div class="highlight-img">
+                    <img src="images/combo-3.png" alt="Pizza Frango Catupiry">
+                </div>
+                <div class="highlight-content">
+                    <h3>Pizza Frango Catupiry</h3>
+                    <p>Molho de tomate, mussarela, frango desfiado, catupiry e milho</p>
+                    <p class="price">R$ 59,90</p>
+                    <button class="btn add-to-cart" data-id="3" data-name="Pizza Frango Catupiry" data-price="59.90">Adicionar</button>
                 </div>
             </div>
         </div>
@@ -1337,14 +1342,14 @@
             <div class="about-content">
                 <div class="about-text">
                     <h2 class="section-title">Sobre Nós</h2>
-                    <p>A Brasa Burguer nasceu da paixão por comida de qualidade e do desejo de levar até você os melhores sabores com conveniência e rapidez.</p>
+                    <p>A Pizzaê nasceu da paixão por comida de qualidade e do desejo de levar até você os melhores sabores com conveniência e rapidez.</p>
                     <p>Nossa equipe de chefs prepara cada item do cardápio com ingredientes frescos e selecionados, garantindo sabor e qualidade em cada pedido.</p>
-                    <p>Com um sistema de delivery eficiente, garantimos que sua comida chegue quentinha e no tempo prometido.</p>
+                    <p>Com um sistema de delivery eficiente, garantimos que sua pizza chegue quentinha e no tempo prometido.</p>
                     <a href="#" class="btn">Nossa História</a>
                 </div>
                 
                 <div class="about-image">
-                    <img src="images/logo2.png" alt="Sobre a Brasa Burguer">
+                    <img src="images/logo2.png" alt="Sobre a Pizzaê">
                 </div>
             </div>
         </div>
@@ -1395,7 +1400,7 @@
                 <!-- Depoimento 1 -->
                 <div class="testimonial">
                     <div class="testimonial-text">
-                        "Os hambúrgueres da Brasa Burguer são incríveis! Sempre bem preparados e chegam quentinhos. Meu delivery favorito!"
+                        "As pizzas da Pizzaê são incríveis! Sempre bem preparadas e chegam quentinhas. Meu delivery favorito!"
                     </div>
                     <div class="testimonial-author">
                         <img src="images/pessoa1.jpg" alt="Ana Silva">
@@ -1409,7 +1414,7 @@
                 <!-- Depoimento 2 -->
                 <div class="testimonial">
                     <div class="testimonial-text">
-                        "Adoro pedir aqui. Os lanches são perfeitos e os ingredientes sempre frescos. Entrega super rápida também!"
+                        "Adoro pedir aqui. As pizzas são perfeitas e os ingredientes sempre frescos. Entrega super rápida também!"
                     </div>
                     <div class="testimonial-author">
                         <img src="images/pessoa3.jpg" alt="Carlos Mendes">
@@ -1423,7 +1428,7 @@
                 <!-- Depoimento 3 -->
                 <div class="testimonial">
                     <div class="testimonial-text">
-                        "Melhor custo-benefício da região. Sempre peço as porções para assistir futebol com os amigos. Recomendo!"
+                        "Melhor custo-benefício da região. Sempre peço as pizzas para assistir futebol com os amigos. Recomendo!"
                     </div>
                     <div class="testimonial-author">
                         <img src="images/pessoa2.jpg" alt="Roberta Almeida">
@@ -1460,7 +1465,7 @@
                             <i class="fas fa-envelope"></i>
                         </div>
                         <div>
-                            <p>brasaburguerctt@gmail.com</p>
+                            <p>pizzaectt@gmail.com</p>
                         </div>
                     </div>
                     
@@ -1494,8 +1499,8 @@
         <div class="container">
             <div class="footer-container">
                 <div class="footer-about">
-                    <a href="#" class="footer-logo">Brasa<span>Burguer</span></a>
-                    <p>Levando sabor e praticidade para sua casa desde 2015. A melhor experiência em delivery de comida.</p>
+                    <a href="#" class="footer-logo">Pizza<span>ê</span></a>
+                    <p>Levando sabor e praticidade para sua casa desde 2015. A melhor experiência em delivery de pizza.</p>
                     
                     <div class="social-links">
                         <a href="#"><i class="fab fa-facebook-f"></i></a>
@@ -1537,7 +1542,7 @@
             </div>
             
             <div class="copyright">
-                <p>&copy; 2025 Brasa Burguer. Todos os direitos reservados.</p>
+                <p>&copy; 2025 Pizzaê. Todos os direitos reservados.</p>
             </div>
         </div>
     </footer>
@@ -1561,7 +1566,6 @@
 
     <!-- JavaScript -->
     <script>
-
 // =============================================
 // MÓDULO DO CARRINHO DE COMPRAS
 // =============================================
@@ -1641,9 +1645,9 @@ const ShoppingCart = (() => {
     const redirectToCheckout = () => {
         // Mapeia os IDs dos produtos para os links de checkout
         const checkoutLinks = {
-            '1': 'https://app.pushinpay.com.br/service/pay/9F67C082-6D59-4F40-8630-574657EC28C0', // Combo na Brasa
-            '2': 'https://app.pushinpay.com.br/service/pay/9f67c138-d5a2-4603-b673-8e905d0f1b30', // Combo Selvagem
-            '3': 'https://app.pushinpay.com.br/service/pay/9f67c1c5-4cf7-4f66-90ce-45edae1995b0'  // Combo Brasa Supremo
+            '1': 'https://app.pushinpay.com.br/service/pay/9F67C082-6D59-4F40-8630-574657EC28C0', // Pizza Margherita
+            '2': 'https://app.pushinpay.com.br/service/pay/9f67c138-d5a2-4603-b673-8e905d0f1b30', // Pizza Calabresa
+            '3': 'https://app.pushinpay.com.br/service/pay/9f67c1c5-4cf7-4f66-90ce-45edae1995b0'  // Pizza Frango Catupiry
         };
 
         // Verifica se o item atual tem um link de checkout correspondente
@@ -1718,7 +1722,7 @@ const ShoppingCart = (() => {
 })();
 
         // =============================================
-        // MÓDULO PRINCIPAL - APP BRASA BURGUER
+        // MÓDULO PRINCIPAL - APP PIZZAÊ
         // =============================================
         document.addEventListener('DOMContentLoaded', () => {
             // Inicializa todos os módulos
@@ -1832,7 +1836,7 @@ const ShoppingCart = (() => {
 
             const getCurrentPosition = () => {
                 return new Promise((resolve, reject) => {
-                    if (!confirm("Para encontrar a lanchonete mais próxima, precisamos acessar sua localização. Permitir?")) {
+                    if (!confirm("Para encontrar a pizzaria mais próxima, precisamos acessar sua localização. Permitir?")) {
                         reject(new Error('Permissão negada pelo usuário'));
                         return;
                     }
@@ -1856,7 +1860,7 @@ const ShoppingCart = (() => {
             };
 
             const showLocationResult = (distance, city) => {
-                document.getElementById('storeDistance').textContent = `Há uma lanchonete Brasa Burguer a ${distance} km de você`;
+                document.getElementById('storeDistance').textContent = `Há uma pizzaria Pizzaê a ${distance} km de você`;
                 document.getElementById('userCity').textContent = `Sua cidade: ${city}`;
             };
 
@@ -1884,7 +1888,7 @@ const ShoppingCart = (() => {
             };
 
             const showDefaultLocation = () => {
-                document.getElementById('storeDistance').textContent = "Há uma lanchonete Brasa Burguer a 3.5 km de você";
+                document.getElementById('storeDistance').textContent = "Há uma pizzaria Pizzaê a 3.5 km de você";
                 document.getElementById('userCity').textContent = "Ative a localização para informações precisas";
             };
 
