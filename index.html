@@ -14,162 +14,10 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
     <!-- Fontes -->
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&family=Montserrat:wght@400;700;900&display=swap" rel="stylesheet">
     
     <!-- CSS -->
     <style>
-
-        /* Para o logo no cabeçalho */
-        .logo-text {
-            color: #9E1424;
-        }
-
-        /* Para garantir que h1 mantenha a cor */
-        h1 {
-            color: #9E1424;
-        }
-
-        /* Para o logo no footer */
-        .footer-logo {
-            color: #9E1424;
-        }
-        .footer-logo span {
-            color: white; /* Mantém a parte "ê" em branco como no seu design */
-        }
-
-
-        .logo-text {
-            color: #9E1424 !important;
-        }
-
-                .brand-name {
-            color: #9E1424;
-        }
-
-        /* Estilo para o modal de endereço */
-        .address-modal {
-            display: none;
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0,0,0,0.5);
-            z-index: 1000;
-            justify-content: center;
-            align-items: center;
-        }
-
-        .address-content {
-            background: white;
-            padding: 25px;
-            border-radius: 10px;
-            width: 90%;
-            max-width: 500px;
-            position: relative;
-            max-height: 90vh;
-            overflow-y: auto;
-        }
-
-        .address-form {
-            margin: 15px 0;
-        }
-
-        .form-group {
-            margin-bottom: 15px;
-        }
-
-        .form-group label {
-            display: block;
-            margin-bottom: 5px;
-            font-weight: 500;
-        }
-
-        .form-group input {
-            width: 100%;
-            padding: 10px 15px;
-            border: 1px solid #ddd;
-            border-radius: 5px;
-            font-family: 'Poppins', sans-serif;
-        }
-
-        .close-address-modal {
-            position: absolute;
-            top: 10px;
-            right: 10px;
-            font-size: 1.5rem;
-            cursor: pointer;
-            color: #333;
-            background: none;
-            border: none;
-}
-
-        /* Estilo adicional para o modal de bebidas */
-        .drink-modal {
-            display: none;
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0,0,0,0.5);
-            z-index: 1000;
-            justify-content: center;
-            align-items: center;
-        }
-
-        .drink-content {
-            background: white;
-            padding: 25px;
-            border-radius: 10px;
-            width: 90%;
-            max-width: 400px;
-            position: relative;
-            max-height: 90vh;
-            overflow-y: auto;
-        }
-
-        .drink-options {
-            margin: 15px 0;
-        }
-
-        .drink-option {
-            display: flex;
-            align-items: center;
-            padding: 12px;
-            border: 1px solid #ddd;
-            border-radius: 5px;
-            margin-bottom: 10px;
-            cursor: pointer;
-            transition: all 0.3s;
-        }
-
-        .drink-option:hover {
-            border-color: #9E1424;
-            background-color: #f9f9f9;
-        }
-
-        .drink-option.active {
-            border-color: #9E1424;
-            background-color: #fff5f5;
-        }
-
-        .drink-option i {
-            font-size: 1.2rem;
-            margin-right: 10px;
-        }
-
-        .close-drink-modal {
-            position: absolute;
-            top: 10px;
-            right: 10px;
-            font-size: 1.5rem;
-            cursor: pointer;
-            color: #333;
-            background: none;
-            border: none;
-}
-
         /* Reset e Estilos Globais */
         * {
             margin: 0;
@@ -186,7 +34,7 @@
         
         h1, h2, h3, h4 {
             font-family: 'Montserrat', sans-serif;
-            font-weight: 700;
+            font-weight: 900; /* Mais encorpado */
             color: #222;
         }
         
@@ -286,9 +134,9 @@
         }
         
         .logo-text {
-            color: white;
+            color: #9E1424;
             font-family: 'Montserrat', sans-serif;
-            font-weight: 700;
+            font-weight: 900; /* Mais encorpado */
             font-size: 1.2rem;
             text-transform: uppercase;
             letter-spacing: 1px;
@@ -305,8 +153,8 @@
         }
 
         #main-nav ul li a {
-            color: white;
-            font-weight: 600;
+            color: #9E1424; /* Alterado para #9E1424 */
+            font-weight: 700; /* Mais encorpado */
             transition: all 0.3s;
             padding: 5px 0;
             position: relative;
@@ -314,7 +162,7 @@
         }
 
         #main-nav ul li a:hover {
-            color: #FFD700;
+            color: #ba172a;
         }
 
         #main-nav ul li a:after {
@@ -322,7 +170,7 @@
             position: absolute;
             width: 0;
             height: 2px;
-            background: #FFD700;
+            background: #ba172a;
             bottom: 0;
             left: 0;
             transition: width 0.3s;
@@ -337,7 +185,7 @@
             display: none;
             font-size: 1.8rem;
             cursor: pointer;
-            color: white;
+            color: #9E1424; /* Alterado para #9E1424 */
             z-index: 1001;
             padding: 10px;
         }
@@ -360,6 +208,7 @@
         .hero h1 {
             font-size: 3.5rem;
             margin-bottom: 20px;
+            color: white;
         }
         
         .hero p {
@@ -1103,6 +952,7 @@
                 font-size: 1.2rem;
                 padding: 10px 0;
                 display: block;
+                color: white;
             }
 
             .hero {
@@ -1172,6 +1022,90 @@
             .pix-code img {
                 max-width: 120px;
             }
+        }
+
+        /* Para o logo no cabeçalho */
+        .logo-text {
+            color: #9E1424;
+        }
+
+        /* Para garantir que h1 mantenha a cor */
+        h1 {
+            color: #9E1424;
+        }
+
+        /* Para o logo no footer */
+        .footer-logo {
+            color: #9E1424;
+        }
+        .footer-logo span {
+            color: white; /* Mantém a parte "ê" em branco como no seu design */
+        }
+
+        .logo-text {
+            color: #9E1424 !important;
+        }
+
+        .brand-name {
+            color: #9E1424;
+        }
+
+        /* Estilo para o modal de endereço */
+        .address-modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.5);
+            z-index: 1000;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .address-content {
+            background: white;
+            padding: 25px;
+            border-radius: 10px;
+            width: 90%;
+            max-width: 500px;
+            position: relative;
+            max-height: 90vh;
+            overflow-y: auto;
+        }
+
+        .address-form {
+            margin: 15px 0;
+        }
+
+        .form-group {
+            margin-bottom: 15px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: 500;
+        }
+
+        .form-group input {
+            width: 100%;
+            padding: 10px 15px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .close-address-modal {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: #333;
+            background: none;
+            border: none;
         }
     </style>
 </head>
