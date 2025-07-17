@@ -34,7 +34,7 @@
         
         h1, h2, h3, h4 {
             font-family: 'Montserrat', sans-serif;
-            font-weight: 900; /* Mais encorpado */
+            font-weight: 900;
             color: #222;
         }
         
@@ -136,7 +136,7 @@
         .logo-text {
             color: #9E1424;
             font-family: 'Montserrat', sans-serif;
-            font-weight: 900; /* Mais encorpado */
+            font-weight: 900;
             font-size: 1.2rem;
             text-transform: uppercase;
             letter-spacing: 1px;
@@ -153,8 +153,8 @@
         }
 
         #main-nav ul li a {
-            color: #9E1424; /* Alterado para #9E1424 */
-            font-weight: 700; /* Mais encorpado */
+            color: #9E1424;
+            font-weight: 700;
             transition: all 0.3s;
             padding: 5px 0;
             position: relative;
@@ -185,7 +185,7 @@
             display: none;
             font-size: 1.8rem;
             cursor: pointer;
-            color: #9E1424; /* Alterado para #9E1424 */
+            color: #9E1424;
             z-index: 1001;
             padding: 10px;
         }
@@ -276,6 +276,33 @@
             font-size: 1.2rem;
             margin-bottom: 15px;
             display: block;
+        }
+        
+        .old-price {
+            text-decoration: line-through;
+            color: #999;
+            font-size: 1rem;
+        }
+        
+        .discount-badge {
+            background-color: #4CAF50;
+            color: white;
+            padding: 3px 8px;
+            border-radius: 4px;
+            font-size: 0.8rem;
+            margin-left: 5px;
+        }
+        
+        .hot-offer {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background-color: #ba172a;
+            color: white;
+            padding: 5px 10px;
+            border-radius: 4px;
+            font-size: 0.8rem;
+            font-weight: bold;
         }
         
         /* Status Online */
@@ -1039,7 +1066,7 @@
             color: #9E1424;
         }
         .footer-logo span {
-            color: white; /* Mantém a parte "ê" em branco como no seu design */
+            color: white;
         }
 
         .logo-text {
@@ -1107,6 +1134,47 @@
             background: none;
             border: none;
         }
+        
+        /* Estilos para ofertas especiais */
+        .special-offer {
+            position: relative;
+            border: 2px solid #ba172a;
+        }
+        
+        .time-counter {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin: 15px 0;
+            font-size: 1.2rem;
+            font-weight: bold;
+            color: #ba172a;
+        }
+        
+        .time-box {
+            background: #f5f5f5;
+            padding: 5px 10px;
+            border-radius: 5px;
+            min-width: 50px;
+            text-align: center;
+        }
+        
+        .best-seller {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            background-color: #FFD700;
+            color: #333;
+            padding: 5px 10px;
+            border-radius: 4px;
+            font-size: 0.8rem;
+            font-weight: bold;
+        }
+        
+        .family-combo {
+            background-color: #fff5f5;
+            border: 2px dashed #ba172a;
+        }
     </style>
 </head>
 <body>
@@ -1134,47 +1202,47 @@
         </div>
     </header>
 
-<!-- Modal de Endereço -->
-<div class="address-modal" id="addressModal">
-    <div class="address-content">
-        <span class="close-address-modal" id="closeAddressModal">&times;</span>
-        <h3>Informe seu endereço</h3>
-        
-        <div class="address-form">
-            <div class="form-group">
-                <label for="addressStreet">Endereço (Rua/Av.)</label>
-                <input type="text" id="addressStreet" placeholder="Ex: Rua das Flores" required>
+    <!-- Modal de Endereço -->
+    <div class="address-modal" id="addressModal">
+        <div class="address-content">
+            <span class="close-address-modal" id="closeAddressModal">&times;</span>
+            <h3>Informe seu endereço</h3>
+            
+            <div class="address-form">
+                <div class="form-group">
+                    <label for="addressStreet">Endereço (Rua/Av.)</label>
+                    <input type="text" id="addressStreet" placeholder="Ex: Rua das Flores" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="addressNumber">Número</label>
+                    <input type="text" id="addressNumber" placeholder="Ex: 123" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="addressNeighborhood">Bairro</label>
+                    <input type="text" id="addressNeighborhood" placeholder="Ex: Centro" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="addressComplement">Complemento (Opcional)</label>
+                    <input type="text" id="addressComplement" placeholder="Ex: Apt 101">
+                </div>
+                
+                <div class="form-group">
+                    <label for="addressReference">Ponto de Referência (Opcional)</label>
+                    <input type="text" id="addressReference" placeholder="Ex: Próximo ao mercado">
+                </div>
             </div>
             
-            <div class="form-group">
-                <label for="addressNumber">Número</label>
-                <input type="text" id="addressNumber" placeholder="Ex: 123" required>
+            <div style="display: flex; gap: 10px; margin-top: 15px;">
+                <button class="btn" id="confirmAddress">Confirmar</button>
+                <button class="btn cancel-drink-btn" id="cancelAddress">Cancelar</button>
             </div>
-            
-            <div class="form-group">
-                <label for="addressNeighborhood">Bairro</label>
-                <input type="text" id="addressNeighborhood" placeholder="Ex: Centro" required>
-            </div>
-            
-            <div class="form-group">
-                <label for="addressComplement">Complemento (Opcional)</label>
-                <input type="text" id="addressComplement" placeholder="Ex: Apt 101">
-            </div>
-            
-            <div class="form-group">
-                <label for="addressReference">Ponto de Referência (Opcional)</label>
-                <input type="text" id="addressReference" placeholder="Ex: Próximo ao mercado">
-            </div>
-        </div>
-        
-        <div style="display: flex; gap: 10px; margin-top: 15px;">
-            <button class="btn" id="confirmAddress">Confirmar</button>
-            <button class="btn cancel-drink-btn" id="cancelAddress">Cancelar</button>
         </div>
     </div>
-</div>
 
-    <!-- Modal dee Pagamento PIX -->
+    <!-- Modal de Pagamento PIX -->
     <div class="payment-modal" id="paymentModal">
         <div class="payment-content">
             <span class="close-modal" id="closeModal">&times;</span>
@@ -1240,56 +1308,143 @@
     </section>
 
     <!-- Destaques do Cardápio -->
-<section class="section highlights" id="menu">
-    <div class="container">
-        <div class="online-status">
-            <span class="online-dot"></span>
-            <span class="online-text">Online</span>
-            <span class="status-text">Aberto agora</span>
-        </div>
-        
-        <h2 class="section-title">Destaques do Cardápio</h2>
-        
-        <div class="highlight-grid">
-            <!-- Combos -->
-            <div class="highlight-card">
-                <div class="highlight-img">
-                    <img src="images/combo-1.png" alt="Pizza Margherita">
-                </div>
-                <div class="highlight-content">
-                    <h3>Pizza Margherita</h3>
-                    <p>Molho de tomate, mussarela, tomate fresco, manjericão e azeite de oliva</p>
-                    <p class="price">R$ 49,90</p>
-                    <button class="btn add-to-cart" data-id="1" data-name="Pizza Margherita" data-price="49.90" data-has-drink="true" data-drink-type="refri">Adicionar</button>
-                </div>
+    <section class="section highlights" id="menu">
+        <div class="container">
+            <div class="online-status">
+                <span class="online-dot"></span>
+                <span class="online-text">Online</span>
+                <span class="status-text">Aberto agora</span>
             </div>
             
-            <div class="highlight-card">
-                <div class="highlight-img">
-                    <img src="images/combo-2.png" alt="Pizza Calabresa">
-                </div>
-                <div class="highlight-content">
-                    <h3>Pizza Calabresa</h3>
-                    <p>Molho de tomate, mussarela, calabresa fatiada, cebola e azeitonas</p>
-                    <p class="price">R$ 54,90</p>
-                    <button class="btn add-to-cart" data-id="2" data-name="Pizza Calabresa" data-price="54.90" data-has-drink="true" data-drink-type="refri">Adicionar</button>
-                </div>
-            </div>
+            <h2 class="section-title">Destaques do Cardápio</h2>
             
-            <div class="highlight-card">
-                <div class="highlight-img">
-                    <img src="images/combo-3.png" alt="Pizza Frango Catupiry">
+            <div class="highlight-grid">
+                <!-- Oferta 1: Pizza Grande 8 Fatias -->
+                <div class="highlight-card special-offer">
+                    <div class="hot-offer">OFERTA ESPECIAL</div>
+                    <div class="highlight-img">
+                        <img src="images/pizza-grande.jpg" alt="Pizza Grande 8 Fatias">
+                    </div>
+                    <div class="highlight-content">
+                        <h3>Pizza Grande 8 Fatias</h3>
+                        <p>Até 2 sabores - Apenas Retirada</p>
+                        <p>
+                            <span class="old-price">de R$ 29,80</span>
+                            <span class="price">por R$ 19,99</span>
+                            <span class="discount-badge">33% OFF</span>
+                        </p>
+                        <button class="btn add-to-cart" data-id="1" data-name="Pizza Grande 8 Fatias" data-price="19.99">Adicionar</button>
+                    </div>
                 </div>
-                <div class="highlight-content">
-                    <h3>Pizza Frango Catupiry</h3>
-                    <p>Molho de tomate, mussarela, frango desfiado, catupiry e milho</p>
-                    <p class="price">R$ 59,90</p>
-                    <button class="btn add-to-cart" data-id="3" data-name="Pizza Frango Catupiry" data-price="59.90">Adicionar</button>
+                
+                <!-- Oferta 2: 1 Pizza Grande + Refri 2L -->
+                <div class="highlight-card special-offer">
+                    <div class="hot-offer">OFERTA ESPECIAL</div>
+                    <div class="highlight-img">
+                        <img src="images/pizza-refri.jpg" alt="1 Pizza Grande + Refri 2L">
+                    </div>
+                    <div class="highlight-content">
+                        <h3>1 Pizza Grande + Refri 2L</h3>
+                        <p>Até 2 sabores - Apenas Retirada</p>
+                        <p>
+                            <span class="old-price">de R$ 45,80</span>
+                            <span class="price">por R$ 29,99</span>
+                            <span class="discount-badge">35% OFF</span>
+                        </p>
+                        <button class="btn add-to-cart" data-id="2" data-name="1 Pizza Grande + Refri 2L" data-price="29.99" data-has-drink="true" data-drink-type="refri">Adicionar</button>
+                    </div>
+                </div>
+                
+                <!-- Oferta 3: 2 Pizzas Grandes + Refri 2L -->
+                <div class="highlight-card special-offer">
+                    <div class="hot-offer">OFERTA RELÂMPAGO</div>
+                    <div class="highlight-img">
+                        <img src="images/2pizzas-refri.jpg" alt="2 Pizzas Grandes + Refri 2L">
+                    </div>
+                    <div class="highlight-content">
+                        <h3>2 Pizzas Grandes + Refri 2L</h3>
+                        <p>Até 2 sabores cada pizza - Apenas Retirada</p>
+                        <p>
+                            <span class="old-price">de R$ 75,80</span>
+                            <span class="price">por R$ 42,90</span>
+                            <span class="discount-badge">43% OFF</span>
+                        </p>
+                        <div class="time-counter">
+                            <div class="time-box" id="minutes">51</div>:
+                            <div class="time-box" id="seconds">53</div>
+                        </div>
+                        <button class="btn add-to-cart" data-id="3" data-name="2 Pizzas Grandes + Refri 2L" data-price="42.90" data-has-drink="true" data-drink-type="refri">Adicionar</button>
+                    </div>
+                </div>
+                
+                <!-- Oferta 4: Combo Mais Vendido -->
+                <div class="highlight-card family-combo">
+                    <div class="best-seller">MAIS VENDIDO</div>
+                    <div class="highlight-img">
+                        <img src="images/combo-familia.jpg" alt="Combo Família">
+                    </div>
+                    <div class="highlight-content">
+                        <h3>Combo Família</h3>
+                        <p>2 Pizzas Grandes + Brotinho Doce + Refri 2L - Perfeito para família</p>
+                        <p>
+                            <span class="old-price">de R$ 75,90</span>
+                            <span class="price">por R$ 59,99</span>
+                            <span class="discount-badge">20% OFF</span>
+                        </p>
+                        <p style="font-size: 0.9rem; color: #666; margin-top: 10px;">O combo mais queridinho da casa!</p>
+                        <button class="btn add-to-cart" data-id="4" data-name="Combo Família" data-price="59.99" data-has-drink="true" data-drink-type="refri">Adicionar</button>
+                    </div>
+                </div>
+                
+                <!-- Sabores individuais -->
+                <div class="highlight-card">
+                    <div class="highlight-img">
+                        <img src="images/calabresa.jpg" alt="Pizza Calabresa">
+                    </div>
+                    <div class="highlight-content">
+                        <h3>Calabresa</h3>
+                        <p>Molho - Mussarela - Calabresa - Cebola - Orégano - Azeitona</p>
+                        <p class="price">R$ 19,99</p>
+                        <button class="btn add-to-cart" data-id="5" data-name="Pizza Calabresa" data-price="19.99">Adicionar</button>
+                    </div>
+                </div>
+                
+                <div class="highlight-card">
+                    <div class="highlight-img">
+                        <img src="images/frango-catupiry.jpg" alt="Frango com Catupiry">
+                    </div>
+                    <div class="highlight-content">
+                        <h3>Frango com Catupiry</h3>
+                        <p>Molho - Mussarela - Frango - Catupiry Original - Orégano - Azeitona</p>
+                        <p class="price">R$ 19,99</p>
+                        <button class="btn add-to-cart" data-id="6" data-name="Pizza Frango com Catupiry" data-price="19.99">Adicionar</button>
+                    </div>
+                </div>
+                
+                <div class="highlight-card">
+                    <div class="highlight-img">
+                        <img src="images/camarao.jpg" alt="Camarão com Catupiry">
+                    </div>
+                    <div class="highlight-content">
+                        <h3>Camarão com Catupiry</h3>
+                        <p>Camarão - Catupiry - Molho - Mussarela - Azeitona - Orégano</p>
+                        <p class="price">R$ 24,99</p>
+                        <button class="btn add-to-cart" data-id="7" data-name="Pizza Camarão com Catupiry" data-price="24.99">Adicionar</button>
+                    </div>
+                </div>
+                
+                <div class="highlight-card">
+                    <div class="highlight-img">
+                        <img src="images/4queijos.jpg" alt="4 Queijos">
+                    </div>
+                    <div class="highlight-content">
+                        <h3>4 Queijos</h3>
+                        <p>Molho - Mussarela - Parmesão - Gorgonzola - Catupiry original - Orégano - Azeitona</p>
+                        <p class="price">R$ 19,99</p>
+                        <button class="btn add-to-cart" data-id="8" data-name="Pizza 4 Queijos" data-price="19.99">Adicionar</button>
+                    </div>
                 </div>
             </div>
-        </div>
-    </div>
-</section>
             
             <div style="text-align: center; margin-top: 40px;">
                 <a href="cardapio.html" class="btn">Ver Cardápio Completo</a>
@@ -1527,160 +1682,160 @@
 
     <!-- JavaScript -->
     <script>
-// =============================================
-// MÓDULO DO CARRINHO DE COMPRAS
-// =============================================
-const ShoppingCart = (() => {
-    let cart = [];
-    let currentItem = null;
-    let selectedDrink = null;
-    let currentAddress = null;
+        // =============================================
+        // MÓDULO DO CARRINHO DE COMPRAS
+        // =============================================
+        const ShoppingCart = (() => {
+            let cart = [];
+            let currentItem = null;
+            let selectedDrink = null;
+            let currentAddress = null;
 
-    const init = () => {
-        updateCartUI();
-        
-        // Adiciona evento de clique para os botões "Adicionar ao Carrinho"
-        document.querySelectorAll('.add-to-cart').forEach(button => {
-            button.addEventListener('click', (e) => {
-                const item = {
-                    id: button.dataset.id,
-                    name: button.dataset.name,
-                    price: parseFloat(button.dataset.price),
-                    hasDrink: button.dataset.hasDrink === 'true',
-                    drinkType: button.dataset.drinkType
-                };
+            const init = () => {
+                updateCartUI();
                 
-                currentItem = item;
-                
-                if (item.hasDrink) {
-                    // Mostra o modal de seleção de bebidas
-                    DrinkSelection.showModal(item, item.drinkType);
-                } else {
-                    // Mostra o modal de endereço para itens sem bebida
-                    showAddressModal();
+                // Adiciona evento de clique para os botões "Adicionar ao Carrinho"
+                document.querySelectorAll('.add-to-cart').forEach(button => {
+                    button.addEventListener('click', (e) => {
+                        const item = {
+                            id: button.dataset.id,
+                            name: button.dataset.name,
+                            price: parseFloat(button.dataset.price),
+                            hasDrink: button.dataset.hasDrink === 'true',
+                            drinkType: button.dataset.drinkType
+                        };
+                        
+                        currentItem = item;
+                        
+                        if (item.hasDrink) {
+                            // Mostra o modal de seleção de bebidas
+                            DrinkSelection.showModal(item, item.drinkType);
+                        } else {
+                            // Mostra o modal de endereço para itens sem bebida
+                            showAddressModal();
+                        }
+                    });
+                });
+
+                // Configura eventos do modal de endereço
+                document.getElementById('closeAddressModal').addEventListener('click', hideAddressModal);
+                document.getElementById('cancelAddress').addEventListener('click', hideAddressModal);
+                document.getElementById('confirmAddress').addEventListener('click', confirmAddress);
+            };
+
+            const showAddressModal = () => {
+                document.getElementById('addressModal').style.display = 'flex';
+                document.body.classList.add('no-scroll');
+            };
+
+            const hideAddressModal = () => {
+                document.getElementById('addressModal').style.display = 'none';
+                document.body.classList.remove('no-scroll');
+            };
+
+            const confirmAddress = () => {
+                const street = document.getElementById('addressStreet').value;
+                const number = document.getElementById('addressNumber').value;
+                const neighborhood = document.getElementById('addressNeighborhood').value;
+                const complement = document.getElementById('addressComplement').value;
+                const reference = document.getElementById('addressReference').value;
+
+                if (!street || !number || !neighborhood) {
+                    alert('Por favor, preencha pelo menos endereço, número e bairro');
+                    return;
                 }
-            });
-        });
 
-        // Configura eventos do modal de endereço
-        document.getElementById('closeAddressModal').addEventListener('click', hideAddressModal);
-        document.getElementById('cancelAddress').addEventListener('click', hideAddressModal);
-        document.getElementById('confirmAddress').addEventListener('click', confirmAddress);
-    };
+                currentAddress = {
+                    street,
+                    number,
+                    neighborhood,
+                    complement,
+                    reference
+                };
 
-    const showAddressModal = () => {
-        document.getElementById('addressModal').style.display = 'flex';
-        document.body.classList.add('no-scroll');
-    };
+                // Redireciona para o checkout apropriado
+                redirectToCheckout();
+                hideAddressModal();
+            };
 
-    const hideAddressModal = () => {
-        document.getElementById('addressModal').style.display = 'none';
-        document.body.classList.remove('no-scroll');
-    };
+            const redirectToCheckout = () => {
+                // Mapeia os IDs dos produtos para os links de checkout
+                const checkoutLinks = {
+                    '1': 'https://app.pushinpay.com.br/service/pay/9F67C082-6D59-4F40-8630-574657EC28C0', // Pizza Margherita
+                    '2': 'https://app.pushinpay.com.br/service/pay/9f67c138-d5a2-4603-b673-8e905d0f1b30', // Pizza Calabresa
+                    '3': 'https://app.pushinpay.com.br/service/pay/9f67c1c5-4cf7-4f66-90ce-45edae1995b0'  // Pizza Frango Catupiry
+                };
 
-    const confirmAddress = () => {
-        const street = document.getElementById('addressStreet').value;
-        const number = document.getElementById('addressNumber').value;
-        const neighborhood = document.getElementById('addressNeighborhood').value;
-        const complement = document.getElementById('addressComplement').value;
-        const reference = document.getElementById('addressReference').value;
+                // Verifica se o item atual tem um link de checkout correspondente
+                if (currentItem && checkoutLinks[currentItem.id]) {
+                    window.location.href = checkoutLinks[currentItem.id];
+                } else {
+                    alert('Produto não encontrado. Por favor, tente novamente.');
+                }
+            };
 
-        if (!street || !number || !neighborhood) {
-            alert('Por favor, preencha pelo menos endereço, número e bairro');
-            return;
-        }
-
-        currentAddress = {
-            street,
-            number,
-            neighborhood,
-            complement,
-            reference
-        };
-
-        // Redireciona para o checkout apropriado
-        redirectToCheckout();
-        hideAddressModal();
-    };
-
-    const redirectToCheckout = () => {
-        // Mapeia os IDs dos produtos para os links de checkout
-        const checkoutLinks = {
-            '1': 'https://app.pushinpay.com.br/service/pay/9F67C082-6D59-4F40-8630-574657EC28C0', // Pizza Margherita
-            '2': 'https://app.pushinpay.com.br/service/pay/9f67c138-d5a2-4603-b673-8e905d0f1b30', // Pizza Calabresa
-            '3': 'https://app.pushinpay.com.br/service/pay/9f67c1c5-4cf7-4f66-90ce-45edae1995b0'  // Pizza Frango Catupiry
-        };
-
-        // Verifica se o item atual tem um link de checkout correspondente
-        if (currentItem && checkoutLinks[currentItem.id]) {
-            window.location.href = checkoutLinks[currentItem.id];
-        } else {
-            alert('Produto não encontrado. Por favor, tente novamente.');
-        }
-    };
-
-    const addToCart = (id, name, price) => {
-        // Lógica para adicionar item ao carrinho
-        const existingItem = cart.find(item => item.id === id);
-        
-        if (existingItem) {
-            existingItem.quantity += 1;
-        } else {
-            cart.push({
-                id,
-                name,
-                price,
-                quantity: 1,
-                address: currentAddress // Adiciona o endereço ao item
-            });
-        }
-        
-        updateCartUI();
-    };
-
-    const updateCartUI = () => {
-        // Atualiza a UI do carrinho
-        const cartItemsElement = document.querySelector('.cart-items');
-        const cartTotalElement = document.querySelector('.cart-total');
-        const cartBadgeElement = document.querySelector('.cart-badge');
-        
-        if (cartItemsElement && cartTotalElement && cartBadgeElement) {
-            cartItemsElement.innerHTML = '';
-            
-            let total = 0;
-            
-            cart.forEach(item => {
-                total += item.price * item.quantity;
+            const addToCart = (id, name, price) => {
+                // Lógica para adicionar item ao carrinho
+                const existingItem = cart.find(item => item.id === id);
                 
-                const itemElement = document.createElement('div');
-                itemElement.className = 'cart-item';
-                itemElement.innerHTML = `
-                    <div class="cart-item-info">${item.name}</div>
-                    <div class="cart-item-quantity">
-                        <button class="decrease-quantity" data-id="${item.id}">-</button>
-                        <span>${item.quantity}</span>
-                        <button class="increase-quantity" data-id="${item.id}">+</button>
-                    </div>
-                    <div class="cart-item-price">R$ ${(item.price * item.quantity).toFixed(2)}</div>
-                    <div class="cart-item-remove" data-id="${item.id}">&times;</div>
-                `;
+                if (existingItem) {
+                    existingItem.quantity += 1;
+                } else {
+                    cart.push({
+                        id,
+                        name,
+                        price,
+                        quantity: 1,
+                        address: currentAddress // Adiciona o endereço ao item
+                    });
+                }
                 
-                cartItemsElement.appendChild(itemElement);
-            });
-            
-            cartTotalElement.textContent = `Total: R$ ${total.toFixed(2)}`;
-            cartBadgeElement.textContent = cart.reduce((sum, item) => sum + item.quantity, 0);
-        }
-    };
+                updateCartUI();
+            };
 
-    return {
-        init,
-        addToCart,
-        currentItem,
-        selectedDrink,
-        showAddressModal 
-    };
-})();
+            const updateCartUI = () => {
+                // Atualiza a UI do carrinho
+                const cartItemsElement = document.querySelector('.cart-items');
+                const cartTotalElement = document.querySelector('.cart-total');
+                const cartBadgeElement = document.querySelector('.cart-badge');
+                
+                if (cartItemsElement && cartTotalElement && cartBadgeElement) {
+                    cartItemsElement.innerHTML = '';
+                    
+                    let total = 0;
+                    
+                    cart.forEach(item => {
+                        total += item.price * item.quantity;
+                        
+                        const itemElement = document.createElement('div');
+                        itemElement.className = 'cart-item';
+                        itemElement.innerHTML = `
+                            <div class="cart-item-info">${item.name}</div>
+                            <div class="cart-item-quantity">
+                                <button class="decrease-quantity" data-id="${item.id}">-</button>
+                                <span>${item.quantity}</span>
+                                <button class="increase-quantity" data-id="${item.id}">+</button>
+                            </div>
+                            <div class="cart-item-price">R$ ${(item.price * item.quantity).toFixed(2)}</div>
+                            <div class="cart-item-remove" data-id="${item.id}">&times;</div>
+                        `;
+                        
+                        cartItemsElement.appendChild(itemElement);
+                    });
+                    
+                    cartTotalElement.textContent = `Total: R$ ${total.toFixed(2)}`;
+                    cartBadgeElement.textContent = cart.reduce((sum, item) => sum + item.quantity, 0);
+                }
+            };
+
+            return {
+                init,
+                addToCart,
+                currentItem,
+                selectedDrink,
+                showAddressModal 
+            };
+        })();
 
         // =============================================
         // MÓDULO PRINCIPAL - APP PIZZAÊ
@@ -1694,6 +1849,9 @@ const ShoppingCart = (() => {
             ShoppingCart.init();
             DrinkSelection.init();
             PaymentSystem.init();
+            
+            // Contador regressivo para oferta relâmpago
+            startCountdown();
         });
 
         // =============================================
@@ -1857,116 +2015,218 @@ const ShoppingCart = (() => {
         })();
         
         // =============================================
-// MÓDULO DE SELEÇÃO DE BEBIDAS (CORRIGIDO)
-// =============================================
-const DrinkSelection = (() => {
-    const drinkTypes = {
-        refri: [
-            { id: 'coca', name: 'Coca-Cola Lata', price: 6.90, icon: '<i class="fas fa-wine-bottle" style="color: #ba172a;"></i>' },
-            { id: 'guarana', name: 'Guaraná Lata', price: 6.90, icon: '<i class="fas fa-wine-bottle" style="color: #4CAF50;"></i>' },
-            { id: 'fanta', name: 'Fanta Lata', price: 6.90, icon: '<i class="fas fa-wine-bottle" style="color: #FF9800;"></i>' },
-            { id: 'sprite', name: 'Sprite Lata', price: 6.90, icon: '<i class="fas fa-wine-bottle" style="color: #00BCD4;"></i>' }
-        ],
-        suco: [
-            { id: 'laranja', name: 'Suco de Laranja', price: 6.90, icon: '<i class="fas fa-glass-whiskey" style="color: #FF9800;"></i>' },
-            { id: 'maracuja', name: 'Suco de Maracujá', price: 6.90, icon: '<i class="fas fa-glass-whiskey" style="color: #FFEB3B;"></i>' },
-            { id: 'limao', name: 'Suco de Limão', price: 6.90, icon: '<i class="fas fa-glass-whiskey" style="color: #CDDC39;"></i>' },
-            { id: 'abacaxi', name: 'Suco de Abacaxi', price: 6.90, icon: '<i class="fas fa-glass-whiskey" style="color: #FFC107;"></i>' }
-        ],
-        energetico: [
-            { id: 'redbull', name: 'Red Bull 250ml', price: 8.90, icon: '<i class="fas fa-bolt" style="color: #0055A4;"></i>' },
-            { id: 'monster', name: 'Monster Energy 250ml', price: 8.90, icon: '<i class="fas fa-bolt" style="color: #4CAF50;"></i>' },
-            { id: 'agua', name: 'Água Mineral 500ml', price: 5.90, icon: '<i class="fas fa-tint" style="color: #2196F3;"></i>' }
-        ]
-    };
+        // MÓDULO DE SELEÇÃO DE BEBIDAS (CORRIGIDO)
+        // =============================================
+        const DrinkSelection = (() => {
+            const drinkTypes = {
+                refri: [
+                    { id: 'coca', name: 'Coca-Cola Lata', price: 6.90, icon: '<i class="fas fa-wine-bottle" style="color: #ba172a;"></i>' },
+                    { id: 'guarana', name: 'Guaraná Lata', price: 6.90, icon: '<i class="fas fa-wine-bottle" style="color: #4CAF50;"></i>' },
+                    { id: 'fanta', name: 'Fanta Lata', price: 6.90, icon: '<i class="fas fa-wine-bottle" style="color: #FF9800;"></i>' },
+                    { id: 'sprite', name: 'Sprite Lata', price: 6.90, icon: '<i class="fas fa-wine-bottle" style="color: #00BCD4;"></i>' }
+                ],
+                suco: [
+                    { id: 'laranja', name: 'Suco de Laranja', price: 6.90, icon: '<i class="fas fa-glass-whiskey" style="color: #FF9800;"></i>' },
+                    { id: 'maracuja', name: 'Suco de Maracujá', price: 6.90, icon: '<i class="fas fa-glass-whiskey" style="color: #FFEB3B;"></i>' },
+                    { id: 'limao', name: 'Suco de Limão', price: 6.90, icon: '<i class="fas fa-glass-whiskey" style="color: #CDDC39;"></i>' },
+                    { id: 'abacaxi', name: 'Suco de Abacaxi', price: 6.90, icon: '<i class="fas fa-glass-whiskey" style="color: #FFC107;"></i>' }
+                ],
+                energetico: [
+                    { id: 'redbull', name: 'Red Bull 250ml', price: 8.90, icon: '<i class="fas fa-bolt" style="color: #0055A4;"></i>' },
+                    { id: 'monster', name: 'Monster Energy 250ml', price: 8.90, icon: '<i class="fas fa-bolt" style="color: #4CAF50;"></i>' },
+                    { id: 'agua', name: 'Água Mineral 500ml', price: 5.90, icon: '<i class="fas fa-tint" style="color: #2196F3;"></i>' }
+                ]
+            };
 
-    const init = () => {
-        document.getElementById('closeDrinkModal').addEventListener('click', hideModal);
-        document.getElementById('cancelDrink').addEventListener('click', hideModal);
-        document.getElementById('confirmDrink').addEventListener('click', confirmSelection);
-    };
+            const init = () => {
+                document.getElementById('closeDrinkModal').addEventListener('click', hideModal);
+                document.getElementById('cancelDrink').addEventListener('click', hideModal);
+                document.getElementById('confirmDrink').addEventListener('click', confirmSelection);
+            };
 
-    const showModal = (item, drinkType) => {
-        document.getElementById('drinkModalTitle').textContent = getTitleForDrinkType(drinkType);
-        renderDrinkOptions(drinkType);
-        document.getElementById('drinkModal').style.display = 'flex';
-        document.body.classList.add('no-scroll');
-        ShoppingCart.currentItem = item;
-    };
+            const showModal = (item, drinkType) => {
+                document.getElementById('drinkModalTitle').textContent = getTitleForDrinkType(drinkType);
+                renderDrinkOptions(drinkType);
+                document.getElementById('drinkModal').style.display = 'flex';
+                document.body.classList.add('no-scroll');
+                ShoppingCart.currentItem = item;
+            };
 
-    const hideModal = () => {
-        document.getElementById('drinkModal').style.display = 'none';
-        document.body.classList.remove('no-scroll');
-        ShoppingCart.currentItem = null;
-        ShoppingCart.selectedDrink = null;
-    };
+            const hideModal = () => {
+                document.getElementById('drinkModal').style.display = 'none';
+                document.body.classList.remove('no-scroll');
+                ShoppingCart.currentItem = null;
+                ShoppingCart.selectedDrink = null;
+            };
 
-    const getTitleForDrinkType = (drinkType) => {
-        return 'Selecione sua bebida';
-    };
+            const getTitleForDrinkType = (drinkType) => {
+                return 'Selecione sua bebida';
+            };
 
-    const renderDrinkOptions = (drinkType) => {
-        const drinkOptions = document.getElementById('drinkOptions');
-        drinkOptions.innerHTML = '';
+            const renderDrinkOptions = (drinkType) => {
+                const drinkOptions = document.getElementById('drinkOptions');
+                drinkOptions.innerHTML = '';
 
-        drinkTypes[drinkType].forEach(drink => {
-            const option = document.createElement('div');
-            option.className = 'drink-option';
-            option.dataset.id = drink.id;
-            option.innerHTML = `
-                <div style="width: 30px; text-align: center; margin-right: 10px;">
-                    ${drink.icon}
-                </div>
-                <div>
-                    <div>${drink.name}</div>
-                    <div style="font-size: 0.9rem; color: #ba172a;">R$ ${drink.price.toFixed(2)}</div>
-                </div>
-            `;
+                drinkTypes[drinkType].forEach(drink => {
+                    const option = document.createElement('div');
+                    option.className = 'drink-option';
+                    option.dataset.id = drink.id;
+                    option.innerHTML = `
+                        <div style="width: 30px; text-align: center; margin-right: 10px;">
+                            ${drink.icon}
+                        </div>
+                        <div>
+                            <div>${drink.name}</div>
+                            <div style="font-size: 0.9rem; color: #ba172a;">R$ ${drink.price.toFixed(2)}</div>
+                        </div>
+                    `;
+                    
+                    option.addEventListener('click', () => selectDrink(option, drink));
+                    drinkOptions.appendChild(option);
+                });
+            };
+
+            const selectDrink = (optionElement, drink) => {
+                document.querySelectorAll('.drink-option').forEach(opt => {
+                    opt.classList.remove('active');
+                });
+                optionElement.classList.add('active');
+                ShoppingCart.selectedDrink = drink;
+            };
+
+            const confirmSelection = () => {
+                if (!ShoppingCart.selectedDrink) {
+                    alert('Por favor, selecione uma bebida');
+                    return;
+                }
+
+                const { currentItem, selectedDrink } = ShoppingCart;
+                
+                // Adiciona o combo com a bebida selecionada
+                const itemName = `${currentItem.name} (${selectedDrink.name})`;
+                const totalPrice = currentItem.price + selectedDrink.price;
+                
+                // Define o item atual antes de mostrar o modal de endereço
+                ShoppingCart.currentItem = {
+                    id: `${currentItem.id}-${selectedDrink.id}`,
+                    name: itemName,
+                    price: totalPrice,
+                    hasDrink: false // Marcamos como false pois já incluímos a bebida no nome e preço
+                };
+                
+                // Esconde o modal de bebidas e mostra o de endereço
+                hideModal();
+                ShoppingCart.showAddressModal();
+            };
             
-            option.addEventListener('click', () => selectDrink(option, drink));
-            drinkOptions.appendChild(option);
-        });
-    };
-
-    const selectDrink = (optionElement, drink) => {
-        document.querySelectorAll('.drink-option').forEach(opt => {
-            opt.classList.remove('active');
-        });
-        optionElement.classList.add('active');
-        ShoppingCart.selectedDrink = drink;
-    };
-
-    const confirmSelection = () => {
-    if (!ShoppingCart.selectedDrink) {
-        alert('Por favor, selecione uma bebida');
-        return;
-    }
-
-    const { currentItem, selectedDrink } = ShoppingCart;
-    
-    // Adiciona o combo com a bebida selecionada
-    const itemName = `${currentItem.name} (${selectedDrink.name})`;
-    const totalPrice = currentItem.price + selectedDrink.price;
-    
-    // Define o item atual antes de mostrar o modal de endereço
-    ShoppingCart.currentItem = {
-        id: `${currentItem.id}-${selectedDrink.id}`,
-        name: itemName,
-        price: totalPrice,
-        hasDrink: false // Marcamos como false pois já incluímos a bebida no nome e preço
-    };
-    
-    // Esconde o modal de bebidas e mostra o de endereço
-    hideModal();
-    ShoppingCart.showAddressModal();
-};
-    // Exporta as funções públicas
-    return {
-        init,
-        showModal,
-        hideModal
-    };
-})();
+            return {
+                init,
+                showModal,
+                hideModal
+            };
+        })();
+        
+        // =============================================
+        // MÓDULO DE PAGAMENTO
+        // =============================================
+        const PaymentSystem = (() => {
+            const init = () => {
+                // Configura eventos do modal de pagamento
+                document.getElementById('closeModal').addEventListener('click', hidePaymentModal);
+                document.getElementById('retryPix').addEventListener('click', retryPixPayment);
+                document.getElementById('copyPixCode').addEventListener('click', copyPixCode);
+            };
+            
+            const showPaymentModal = (amount) => {
+                document.getElementById('pixAmount').textContent = `R$ ${amount.toFixed(2)}`;
+                document.getElementById('pixLoading').style.display = 'block';
+                document.getElementById('pixDetails').style.display = 'none';
+                document.getElementById('pixError').style.display = 'none';
+                document.getElementById('paymentModal').style.display = 'flex';
+                document.body.classList.add('no-scroll');
+                
+                // Simula geração do PIX
+                setTimeout(() => {
+                    generatePixCode(amount);
+                }, 1500);
+            };
+            
+            const hidePaymentModal = () => {
+                document.getElementById('paymentModal').style.display = 'none';
+                document.body.classList.remove('no-scroll');
+            };
+            
+            const generatePixCode = (amount) => {
+                // Simulação - em produção você faria uma chamada ao backend
+                document.getElementById('pixLoading').style.display = 'none';
+                document.getElementById('pixDetails').style.display = 'block';
+                document.getElementById('pixStatus').style.display = 'block';
+                
+                // Código PIX fictício para demonstração
+                document.getElementById('pixCopyPaste').textContent = '00020126580014br.gov.bcb.pix0136123e4567-e12b-12d1-a456-4266554400005204000053039865404' + 
+                    (amount * 100).toFixed(0) + '5802BR5925PIZZAÊ PIZZARIA DELIV6009SAO PAULO62070503***6304';
+                
+                // Simula confirmação de pagamento
+                setTimeout(() => {
+                    document.getElementById('pixStatus').innerHTML = '<p><i class="fas fa-check-circle" style="color: #4CAF50;"></i> Pagamento confirmado! Seu pedido está sendo preparado.</p>';
+                }, 3000);
+            };
+            
+            const retryPixPayment = () => {
+                const amount = parseFloat(document.getElementById('pixAmount').textContent.replace('R$ ', '').replace(',', '.'));
+                document.getElementById('pixError').style.display = 'none';
+                document.getElementById('pixLoading').style.display = 'block';
+                
+                setTimeout(() => {
+                    generatePixCode(amount);
+                }, 1000);
+            };
+            
+            const copyPixCode = () => {
+                const copyText = document.getElementById('pixCopyPaste').textContent;
+                navigator.clipboard.writeText(copyText).then(() => {
+                    const copyBtn = document.getElementById('copyPixCode');
+                    const originalText = copyBtn.innerHTML;
+                    copyBtn.innerHTML = '<i class="fas fa-check"></i> Código copiado!';
+                    
+                    setTimeout(() => {
+                        copyBtn.innerHTML = originalText;
+                    }, 2000);
+                });
+            };
+            
+            return {
+                init,
+                showPaymentModal
+            };
+        })();
+        
+        // =============================================
+        // CONTADOR REGRESSIVO PARA OFERTA RELÂMPAGO
+        // =============================================
+        const startCountdown = () => {
+            let minutes = 51;
+            let seconds = 53;
+            
+            const countdown = setInterval(() => {
+                seconds--;
+                
+                if (seconds < 0) {
+                    seconds = 59;
+                    minutes--;
+                }
+                
+                if (minutes < 0) {
+                    clearInterval(countdown);
+                    document.querySelector('.highlight-card.special-offer .hot-offer').textContent = 'OFERTA ENCERRADA';
+                    document.querySelector('.highlight-card.special-offer .btn').disabled = true;
+                    return;
+                }
+                
+                document.getElementById('minutes').textContent = minutes < 10 ? '0' + minutes : minutes;
+                document.getElementById('seconds').textContent = seconds < 10 ? '0' + seconds : seconds;
+            }, 1000);
+        };
     </script>
 </body>
 </html>
