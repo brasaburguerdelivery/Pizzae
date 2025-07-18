@@ -18,66 +18,7 @@
     
     <!-- CSS -->
     <style>
-
-        /* Adicione estas regras no seu CSS */
-
-        .highlight-img {
-            height: 200px;
-            overflow: hidden;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            background-color: #f5f5f5; /* Cor de fundo caso a imagem não carregue */
-        }
-
-        .highlight-img img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: transform 0.5s;
-            object-position: center; /* Garante que o foco da imagem fique no centro */
-        }
-
-        /* Ajustes específicos para cada tipo de imagem */
-        .highlight-card:nth-child(1) .highlight-img img { /* Pizza Grande */
-            object-position: center 30%;
-        }
-
-        .highlight-card:nth-child(2) .highlight-img img { /* Pizza + Refri */
-            object-position: center 40%;
-        }
-
-        .highlight-card:nth-child(3) .highlight-img img { /* 2 Pizzas + Refri */
-            object-position: center 35%;
-        }
-
-        .highlight-card:nth-child(4) .highlight-img img { /* Combo Família */
-            object-position: center 30%;
-        }
-
-        /* Ajuste para imagens de sabores individuais */
-        .highlight-card:not(.special-offer):not(.family-combo) .highlight-img img {
-            object-fit: contain; /* Mostra a pizza inteira */
-            padding: 15px; /* Espaço ao redor da imagem */
-            height: auto;
-            max-height: 100%;
-            width: auto;
-            max-width: 100%;
-        }
-
-        /* Responsividade para telas menores */
-        @media (max-width: 768px) {
-            .highlight-img {
-                height: 180px;
-            }
-        }
-
-        @media (max-width: 576px) {
-            .highlight-img {
-                height: 150px;
-            }
-        }
-
+        
         /* Reset e Estilos Globais */
         * {
             margin: 0;
