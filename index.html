@@ -2024,25 +2024,28 @@
             };
         })();
 
-        // =============================================
-        // MÓDULO PRINCIPAL - APP PIZZAÊ
-        // =============================================
-        document.addEventListener('DOMContentLoaded', () => {
-            // Inicializa todos os módulos
-            MobileMenu.init();
-            SmoothScroll.init();
-            HeaderEffects.init();
-            LocationService.init();
-            ShoppingCart.init();
-            DrinkSelection.init();
-            PaymentSystem.init();
-            
-            // Contador regressivo para oferta relâmpago
-            startCountdown();
-            
-            // Mostra o modal de localização automaticamente
-            showAutoLocationModal();
-        });
+            // =============================================
+            // MÓDULO PRINCIPAL - APP PIZZAÊ
+            // =============================================
+            document.addEventListener('DOMContentLoaded', () => {
+                // Inicializa todos os módulos
+                MobileMenu.init();
+                SmoothScroll.init();
+                HeaderEffects.init();
+                LocationService.init();
+                ShoppingCart.init();
+                DrinkSelection.init();
+                PaymentSystem.init();
+                
+                // Contador regressivo para oferta relâmpago
+                startCountdown();
+                
+                // Mostra o modal de localização automaticamente
+                // Só mostra se não tiver sido mostrado antes nesta sessão
+                if (sessionStorage.getItem('locationModalShown') !== 'true') {
+                    showAutoLocationModal();
+                }
+            });
 
         // =============================================
         // MÓDULO DE LOCALIZAÇÃO AUTOMÁTICA
