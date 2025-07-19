@@ -2062,31 +2062,35 @@
         // =============================================
         // MÓDULO DE LOCALIZAÇÃO AUTOMÁTICA
         // =============================================
-        const showAutoLocationModal = () => {
-            // Verifica se já mostramos o modal nesta sessão
-            if (!sessionStorage.getItem('locationModalShown')) {
-                const modal = document.getElementById('autoLocationModal');
+            const showAutoLocationModal = () => {
+        if (!sessionStorage.getItem('locationModalShown')) {
+            const modal = document.getElementById('autoLocationModal');
+            
+            document.getElementById('allowLocation').addEventListener('click', () => {
+                modal.style.display = 'none';
+                document.body.classList.remove('no-scroll');
+                sessionStorage.setItem('locationModalShown', 'true');
                 
-                // Configura os botões do modal
-                document.getElementById('allowLocation').addEventListener('click', () => {
-                    modal.style.display = 'none';
-                    document.body.classList.remove('no-scroll');
-                    sessionStorage.setItem('locationModalShown', 'true');
-                    // Chama a função de verificação de localização
-                    LocationService.handleLocationClick();
-                });
+                // Rola para a seção de localização antes de iniciar o processo
+                const locationSection = document.querySelector('.location-container');
+                if (locationSection) {
+                    locationSection.scrollIntoView({ behavior: 'smooth' });
+                }
                 
-                document.getElementById('denyLocation').addEventListener('click', () => {
-                    modal.style.display = 'none';
-                    document.body.classList.remove('no-scroll');
-                    sessionStorage.setItem('locationModalShown', 'true');
-                });
-                
-                // Mostra o modal
-                modal.style.display = 'flex';
-                document.body.classList.add('no-scroll');
-            }
-        };
+                // Chama a função de verificação de localização
+                LocationService.handleLocationClick();
+            });
+            
+            document.getElementById('denyLocation').addEventListener('click', () => {
+                modal.style.display = 'none';
+                document.body.classList.remove('no-scroll');
+                sessionStorage.setItem('locationModalShown', 'true');
+            });
+            
+            modal.style.display = 'flex';
+            document.body.classList.add('no-scroll');
+        }
+    };
 
         // =============================================
         // MÓDULO DE MENU MOBILE
@@ -2159,33 +2163,44 @@
         // MÓDULO DE LOCALIZAÇÃO
         // =============================================
         const LocationService = (() => {
-            const init = () => {
-                const locationBtn = document.getElementById('locationBtn');
-                if (locationBtn) {
-                    locationBtn.addEventListener('click', handleLocationClick);
-                }
-            };
+    const init = () => {
+        const locationBtn = document.getElementById('locationBtn');
+        if (locationBtn) {
+            locationBtn.addEventListener('click', handleLocationClick);
+        }
+    };
 
-            const handleLocationClick = async () => {
-                const resultDiv = document.getElementById('locationResult');
-                document.getElementById('storeDistance').textContent = "Buscando sua localização...";
-                document.getElementById('userCity').textContent = "";
-                resultDiv.style.display = 'block';
+    const handleLocationClick = async () => {
+        const resultDiv = document.getElementById('locationResult');
+        document.getElementById('storeDistance').textContent = "Buscando sua localização...";
+        document.getElementById('userCity').textContent = "";
+        resultDiv.style.display = 'block';
 
-                if (!navigator.geolocation) {
-                    showDefaultLocation();
-                    return;
-                }
+        // Rola a página para a seção de localização
+        scrollToLocationSection();
 
-                try {
-                    const position = await getCurrentPosition();
-                    const city = await getCityName(position.coords.latitude, position.coords.longitude);
-                    showLocationResult(3.5, city);
-                } catch (error) {
-                    handleLocationError(error);
-                    setTimeout(showDefaultLocation, 2000);
-                }
-            };
+        if (!navigator.geolocation) {
+            showDefaultLocation();
+            return;
+        }
+
+        try {
+            const position = await getCurrentPosition();
+            const city = await getCityName(position.coords.latitude, position.coords.longitude);
+            showLocationResult(3.5, city);
+        } catch (error) {
+            handleLocationError(error);
+            setTimeout(showDefaultLocation, 2000);
+        }
+    };
+
+    // Função para rolar até a seção de localização
+    const scrollToLocationSection = () => {
+        const locationSection = document.querySelector('.location-container');
+        if (locationSection) {
+            locationSection.scrollIntoView({ behavior: 'smooth' });
+        }
+    };
 
             const getCurrentPosition = () => {
                 return new Promise((resolve, reject) => {
