@@ -936,7 +936,7 @@
 
         /* Modal de Localização Automática */
         .auto-location-modal {
-            display: flex;
+            display: none;
             position: fixed;
             top: 0;
             left: 0;
@@ -971,6 +971,47 @@
             justify-content: center;
             gap: 15px;
             margin-top: 20px;
+        }
+
+        /* Estilos para ofertas especiais */
+        .special-offer {
+            position: relative;
+            border: 2px solid #ba172a;
+        }
+        
+        .time-counter {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin: 15px 0;
+            font-size: 1.2rem;
+            font-weight: bold;
+            color: #ba172a;
+        }
+        
+        .time-box {
+            background: #f5f5f5;
+            padding: 5px 10px;
+            border-radius: 5px;
+            min-width: 50px;
+            text-align: center;
+        }
+        
+        .best-seller {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            background-color: #FFD700;
+            color: #333;
+            padding: 5px 10px;
+            border-radius: 4px;
+            font-size: 0.8rem;
+            font-weight: bold;
+        }
+        
+        .family-combo {
+            background-color: #fff5f5;
+            border: 2px dashed #ba172a;
         }
 
         /* Responsivo */
@@ -1181,47 +1222,6 @@
             color: #333;
             background: none;
             border: none;
-        }
-        
-        /* Estilos para ofertas especiais */
-        .special-offer {
-            position: relative;
-            border: 2px solid #ba172a;
-        }
-        
-        .time-counter {
-            display: flex;
-            justify-content: center;
-            gap: 10px;
-            margin: 15px 0;
-            font-size: 1.2rem;
-            font-weight: bold;
-            color: #ba172a;
-        }
-        
-        .time-box {
-            background: #f5f5f5;
-            padding: 5px 10px;
-            border-radius: 5px;
-            min-width: 50px;
-            text-align: center;
-        }
-        
-        .best-seller {
-            position: absolute;
-            top: 10px;
-            left: 10px;
-            background-color: #FFD700;
-            color: #333;
-            padding: 5px 10px;
-            border-radius: 4px;
-            font-size: 0.8rem;
-            font-weight: bold;
-        }
-        
-        .family-combo {
-            background-color: #fff5f5;
-            border: 2px dashed #ba172a;
         }
     </style>
 </head>
