@@ -934,6 +934,45 @@
             box-shadow: none;
         }
 
+        /* Modal de Localização Automática */
+        .auto-location-modal {
+            display: flex;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.7);
+            z-index: 2000;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .auto-location-content {
+            background: white;
+            padding: 25px;
+            border-radius: 10px;
+            width: 90%;
+            max-width: 500px;
+            text-align: center;
+        }
+
+        .auto-location-content h3 {
+            margin-bottom: 15px;
+            color: #9E1424;
+        }
+
+        .auto-location-content p {
+            margin-bottom: 20px;
+        }
+
+        .auto-location-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-top: 20px;
+        }
+
         /* Responsivo */
         @media (max-width: 992px) {
             .about-content,
@@ -1010,6 +1049,14 @@
 
             .cart-float-tooltip {
                 display: none;
+            }
+
+            .auto-location-buttons {
+                flex-direction: column;
+            }
+
+            .auto-location-buttons .btn {
+                width: 100%;
             }
         }
         
@@ -1179,6 +1226,20 @@
     </style>
 </head>
 <body>
+    <!-- Modal de Localização Automática -->
+    <div class="auto-location-modal" id="autoLocationModal">
+        <div class="auto-location-content">
+            <h3>Bem-vindo à Pizzaê!</h3>
+            <p>Para encontrar a pizzaria mais próxima e ver ofertas exclusivas para sua região, precisamos da sua localização.</p>
+            <p>Deseja permitir que acessemos sua localização agora?</p>
+            
+            <div class="auto-location-buttons">
+                <button class="btn" id="allowLocation">Permitir Localização</button>
+                <button class="btn cancel-drink-btn" id="denyLocation">Não Permitir</button>
+            </div>
+        </div>
+    </div>
+
     <!-- Header -->
     <header>
         <div class="container header-container">
@@ -1978,7 +2039,39 @@
             
             // Contador regressivo para oferta relâmpago
             startCountdown();
+            
+            // Mostra o modal de localização automaticamente
+            showAutoLocationModal();
         });
+
+        // =============================================
+        // MÓDULO DE LOCALIZAÇÃO AUTOMÁTICA
+        // =============================================
+        const showAutoLocationModal = () => {
+            // Verifica se já mostramos o modal nesta sessão
+            if (!sessionStorage.getItem('locationModalShown')) {
+                const modal = document.getElementById('autoLocationModal');
+                
+                // Configura os botões do modal
+                document.getElementById('allowLocation').addEventListener('click', () => {
+                    modal.style.display = 'none';
+                    document.body.classList.remove('no-scroll');
+                    sessionStorage.setItem('locationModalShown', 'true');
+                    // Chama a função de verificação de localização
+                    LocationService.handleLocationClick();
+                });
+                
+                document.getElementById('denyLocation').addEventListener('click', () => {
+                    modal.style.display = 'none';
+                    document.body.classList.remove('no-scroll');
+                    sessionStorage.setItem('locationModalShown', 'true');
+                });
+                
+                // Mostra o modal
+                modal.style.display = 'flex';
+                document.body.classList.add('no-scroll');
+            }
+        };
 
         // =============================================
         // MÓDULO DE MENU MOBILE
@@ -2137,7 +2230,10 @@
                 document.getElementById('userCity').textContent = "Ative a localização para informações precisas";
             };
 
-            return { init };
+            return { 
+                init,
+                handleLocationClick // Expondo a função para ser chamada pelo modal automático
+            };
         })();
         
         // =============================================
