@@ -18,6 +18,19 @@
     
     <!-- CSS -->
     <style>
+
+        .location-success {
+            color: #28a745 !important; /* Verde */
+            font-weight: 500;
+        }
+
+        .location-error {
+            color: #dc3545 !important; /* Vermelho */
+        }
+
+        .location-warning {
+            color: #ffc107 !important; /* Amarelo */
+        }
         
         /* Reset e Estilos Globais */
         * {
@@ -2200,42 +2213,60 @@
             };
 
             const showLocationResult = (distance, city) => {
-                document.getElementById('storeDistance').textContent = `Há uma pizzaria Pizzaê a ${distance} km de você`;
-                document.getElementById('userCity').textContent = `Sua cidade: ${city}`;
-            };
+            const distanceElement = document.getElementById('storeDistance');
+            const cityElement = document.getElementById('userCity');
+            
+            distanceElement.textContent = `Há uma pizzaria Pizzaê a ${distance} km de você`;
+            distanceElement.style.color = '#28a745'; // Verde
+            distanceElement.classList.add('location-success');
+            
+            cityElement.textContent = `Sua cidade: ${city}`;
+            cityElement.style.color = '#28a745'; // Verde
+            cityElement.classList.add('location-success');
+        };
 
-            const handleLocationError = (error) => {
-                let message = "Não foi possível determinar sua localização.";
-                let instruction = "";
+        const handleLocationError = (error) => {
+            const distanceElement = document.getElementById('storeDistance');
+            const cityElement = document.getElementById('userCity');
+            
+            let message = "Não foi possível determinar sua localização.";
+            let instruction = "";
 
-                switch(error.message) {
-                    case 'Permissão negada pelo usuário':
-                        message = "Permissão de localização negada.";
-                        instruction = "Ative a localização nas configurações para usar este recurso";
-                        break;
-                    case 'POSITION_UNAVAILABLE':
-                        message = "Localização indisponível.";
-                        instruction = "Verifique se o GPS está ativado";
-                        break;
-                    case 'TIMEOUT':
-                        message = "Tempo de busca expirado.";
-                        instruction = "Verifique sua conexão e tente novamente";
-                        break;
-                }
+            switch(error.message) {
+                case 'Permissão negada pelo usuário':
+                    message = "Permissão de localização negada.";
+                    instruction = "Ative a localização nas configurações para usar este recurso";
+                    break;
+                case 'POSITION_UNAVAILABLE':
+                    message = "Localização indisponível.";
+                    instruction = "Verifique se o GPS está ativado";
+                    break;
+                case 'TIMEOUT':
+                    message = "Tempo de busca expirado.";
+                    instruction = "Verifique sua conexão e tente novamente";
+                    break;
+            }
 
-                document.getElementById('storeDistance').textContent = message;
-                document.getElementById('userCity').textContent = instruction;
-            };
+            distanceElement.textContent = message;
+            distanceElement.style.color = '#dc3545'; // Vermelho para erros
+            cityElement.textContent = instruction;
+            cityElement.style.color = '#dc3545'; // Vermelho para erros
+        };
 
-            const showDefaultLocation = () => {
-                document.getElementById('storeDistance').textContent = "Há uma pizzaria Pizzaê a 3.5 km de você";
-                document.getElementById('userCity').textContent = "Ative a localização para informações precisas";
-            };
+        const showDefaultLocation = () => {
+            const distanceElement = document.getElementById('storeDistance');
+            const cityElement = document.getElementById('userCity');
+            
+            distanceElement.textContent = "Há uma pizzaria Pizzaê a 3.5 km de você";
+            distanceElement.style.color = '#28a745'; // Verde
+            cityElement.textContent = "Ative a localização para informações precisas";
+            cityElement.style.color = '#ffc107'; // Amarelo para mensagem padrão
+        };
 
-            return { 
-                init,
-                handleLocationClick // Expondo a função para ser chamada pelo modal automático
-            };
+        return { 
+            init,
+            handleLocationClick
+        };
         })();
         
         // =============================================
